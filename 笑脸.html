@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modified Smiley Face</title>
+    <style>
+        body {
+            background-color: #90EE90; /* 绿色背景 */
+        }
+        canvas {
+            display: block;
+            margin: 50px auto;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="400" height="400"></canvas>
+
+    <script>
+        const canvas = document.getElementById("myCanvas");
+        const ctx = canvas.getContext("2d");
+
+        // 绘制圆脸
+        ctx.beginPath();
+        ctx.arc(200, 200, 100, 0, Math.PI * 2, true); // 圆心(200, 200)，半径100
+        ctx.fillStyle = "yellow"; // 填充黄色
+        ctx.fill();
+        ctx.stroke();
+
+        // 左眼
+        ctx.beginPath();
+        ctx.arc(160, 170, 10, 0, Math.PI * 2, true); // 圆心(160, 170)，半径10
+        ctx.fillStyle = "black";
+        ctx.fill();
+
+        // 右眼
+        ctx.beginPath();
+        ctx.arc(240, 170, 10, 0, Math.PI * 2, true); // 圆心(240, 170)，半径10
+        ctx.fillStyle = "black";
+        ctx.fill();
+
+        // 鼻子（用直线表示）
+        ctx.beginPath();
+        ctx.moveTo(200, 180); // 鼻子起点
+        ctx.lineTo(200, 220); // 鼻子终点
+        ctx.strokeStyle = "black";
+        ctx.stroke();
+
+        // 微笑嘴巴
+        ctx.beginPath();
+        ctx.arc(200, 230, 50, 0, Math.PI, false); // 圆弧微笑
+        ctx.stroke();
+
+        // 绘制文本
+        ctx.font = "20px Arial";
+        ctx.fillStyle = "green"; // 绿色文字
+        ctx.textAlign = "center"; // 文本居中对齐
+        ctx.fillText("The Canvas brought me to life!", 200, 350); // 文本位置
+    </script>
+</body>
+</html>
